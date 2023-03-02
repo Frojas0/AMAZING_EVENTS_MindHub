@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Labels Style */
+h4 {
+    font-size: 2rem;
+    color: rgb(225, 18, 97);
+}
+
+main {
+    background: rgb(249, 241, 232);
+    min-height: 90vh;
+}
+
+footer {
+    color: white;
+}
+
+/* Class Style */
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: rgb(225, 18, 97);
+}
+
+.active {
+    border: solid 2px rgb(225, 18, 97);
+    border-radius: 0.5rem;
+    color: white !important;
+}
+
+.carousel-item {
+    height: 20vh;
+    border: none;
+}
+
+.btn-outline-secondary,
+.form-control {
+    color: rgb(225, 18, 97);
+}
+
+.footer-content {
+    color: white;
+}
