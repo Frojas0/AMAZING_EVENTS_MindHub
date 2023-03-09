@@ -17,7 +17,7 @@
         <nav class="navbar navbar-expand-lg bg-black">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./index.html"><img style="width: 10rem;"
-                        src="./assets/images/Logo Amazing Events.png" alt="logo"></a>
+                        src="./assets/images/LogoAmazingEvents.png" alt="logo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -74,18 +74,24 @@
         </div>
         <div class="btn-toolbar mb-3 d-flex align-content-center justify-content-around" style="margin-top: 1rem;"
             role="toolbar" aria-label="Toolbar with button groups">
-            <div class="btn-group me-2" role="group" aria-label="First group">
+            <div class="btn-group me-2 d-flex flex-wrap" role="group" aria-label="First group">
                 <button type="button" class="btn btn-outline-secondary"><input type="checkbox" class="form-check-input"
                         id="exampleCheck1">
                     Category</button>
                 <button type="button" class="btn btn-outline-secondary"><input type="checkbox" class="form-check-input"
-                        id="exampleCheck1">
+                        id="exampleCheck2">
                     Category</button>
                 <button type="button" class="btn btn-outline-secondary"><input type="checkbox" class="form-check-input"
-                        id="exampleCheck1">
+                        id="exampleCheck3">
                     Category</button>
                 <button type="button" class="btn btn-outline-secondary"><input type="checkbox" class="form-check-input"
-                        id="exampleCheck1">
+                        id="exampleCheck4">
+                    Category</button>
+                <button type="button" class="btn btn-outline-secondary"><input type="checkbox" class="form-check-input"
+                        id="exampleCheck5">
+                    Category</button>
+                <button type="button" class="btn btn-outline-secondary"><input type="checkbox" class="form-check-input"
+                        id="exampleCheck6">
                     Category</button>
             </div>
             <div class="input-group">
@@ -94,57 +100,9 @@
                     aria-describedby="btnGroupAddon">
             </div>
         </div>
-        <div class="d-flex flex-wrap justify-content-around align-self-center">
-            <div class="card" style="width: 15rem;">
-                <img style="height: 9rem;" src="https://hips.hearstapps.com/hmg-prod/images/gettyimages-1066935970.jpg"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">10K for life</h5>
-                    <p class="card-text">Come and exercise, improve your health and lifestyle.</p>
-                    <div class="d-flex justify-content-around align-items-center">
-                        <p class="m-0">Price: $3</p>
-                        <a href="./details.html" class="btn btn-primary">More Info</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" style="width: 15rem;">
-                <img style="height: 9rem;"
-                    src="https://m.ellaslist.com.au/system/events/featured_images/000/016/480/original/data?1644448629"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">School Book Fair</h5>
-                    <p class="card-text">Bring your unused school book and bring the one you need.</p>
-                    <div class="d-flex justify-content-around align-items-center">
-                        <p class="m-0">Price: $1</p>
-                        <a href="./details.html" class="btn btn-primary">More Info</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card" style="width: 15rem;">
-                <img style="height: 9rem;" src="https://media.vandal.net/i/1200x630/11-2021/2021111119165393_1.jpg"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Avengers</h5>
-                    <p class="card-text">Marvel's Avengers 3d premiere the start of an epic saga with your best
-                        superheroes.</p>
-                    <div class="d-flex justify-content-around align-items-center">
-                        <p class="m-0">Price: $250</p>
-                        <a href="./details.html" class="btn btn-primary">More Info</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card g-col-6" style="width: 15rem;">
-                <img style="height: 9rem;"
-                    src="https://img.texasmonthly.com/2023/01/mexican-food-interior-fajitas.jpg?auto=compress&crop=faces&fit=crop&fm=pjpg&h=750&ixlib=php-3.3.1&q=45&w=1200&wpsize=landscape-1200"
-                    class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Mexican Night</h5>
-                    <p class="card-text">Come and eat the best of Mexican culture, you will not want to miss it.</p>
-                    <div class="d-flex justify-content-around align-items-center aling-self-">
-                        <p class="m-0">Price: $25</p>
-                        <a href="./details.html" class="btn btn-primary">More Info</a>
-                    </div>
-                </div>
+        <div class="d-flex justify-content-center" style="padding-top: 1rem; padding-bottom: 2rem;">
+            <div class="d-flex flex-wrap justify-content-around gap-4" style="width: 95vw;" id="content-upcoming-cards">
+
             </div>
         </div>
     </main>
@@ -153,7 +111,7 @@
             <nav class="navbar bg-black">
                 <div class="container-fluid bg-black">
                     <a class="navbar-brand" style="color: white;" href="https://www.instagram.com/">
-                        <img src="./assets/images/logoIg.png" alt="logo" Ig width="35" height="35"
+                        <img src="./assets/images/logoIg.png" alt="logo" width="35" height="35"
                             class="d-inline-block align-text-top">
                         Instagram
                     </a>
@@ -175,6 +133,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
+    <script src="data.js"></script>
+    <script src="./upcomingEvents.js"></script>
 </body>
 
 </html>
