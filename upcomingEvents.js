@@ -1,17 +1,18 @@
 const $caja = document.getElementById('content-cards');
 const $cajaCheckBox = document.getElementById('content-checkbox');
 const $cajaSearch = document.getElementById('content-search');
+
 /*---------- Cards ----------*/
 function cardGenerate(finalList) {
     return `
 <div class="card card-background" style="width: 15rem;">
     <img style="height: 9rem;" src="${finalList.image}" class="card-img-top" alt="img of ${finalList.name}">
-        <div class="d-flex flex-column justify-content-between card-body" style="height: 13rem">
+        <div class="d-flex flex-column justify-content-between card-body" style="height: 15rem">
             <h5 class="card-title">${finalList.name}</h5>
             <p class="card-text" >${finalList.description}</p>
             <div class="d-flex justify-content-around align-items-center">
                 <p class="m-0">Price: $${finalList.price}</p>
-                <a href="./details.html?id=${finalList._id}&name=${finalList.name}" class="btn btn-danger">More Info</a>
+                <a href="./details.html?id=${finalList._id}" class="btn btn-danger">More Info</a>
             </div>
         </div>
 </div>
@@ -40,12 +41,8 @@ function dateFilter(lista) {
     cardRender(upcomingEvents, $caja);
     return upcomingEvents;
 }
-dateFilter(data)
-// cardRender(data.events, $caja);
 
 /*---------- Search Bar ----------*/
-let category02 = data.events.map(element => element.category); //Lista de categorias
-const noRepCategory = Array.from(new Set(category02)); //Categorias sin repetir
 function searchBarGenerate(categoryList, i) {
     return `
     <input type="checkbox" value="${categoryList[i]}" class="btn-check" id="${categoryList[i]}">
@@ -60,7 +57,6 @@ function searchBarRender(newCategoryList, element) {
     }
     element.innerHTML += template;
 }
-searchBarRender(noRepCategory, $cajaCheckBox);
 
 /*---------- Event Listener ----------*/
 //CheckBox
@@ -107,3 +103,18 @@ $cajaSearch.addEventListener('input', e => {
 function filtroCruzado(eventos) {
     return checkComparator(ifSearch(eventos));
 }
+
+/*---------- With API ----------*/
+//Fetch
+const url = 'https://mindhub-xj03.onrender.com/api/amazing';
+
+fetch(url)
+    .then(answer => answer.json())
+    .then(json => {
+        newData = json;
+        dateFilter(newData);
+        let category02 = newData.events.map(element => element.category);
+        const noRepCategory = Array.from(new Set(category02));
+        searchBarRender(noRepCategory, $cajaCheckBox);
+    })
+    .catch(err => console.log(err));

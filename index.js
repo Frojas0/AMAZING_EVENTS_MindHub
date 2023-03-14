@@ -1,17 +1,18 @@
 const $caja = document.getElementById('content-cards');
 const $cajaCheckBox = document.getElementById('content-checkbox');
 const $cajaSearch = document.getElementById('content-search');
+
 /*---------- Cards ----------*/
 function cardGenerate(finalList) {
     return `
 <div class="card card-background" style="width: 15rem;">
     <img style="height: 9rem;" src="${finalList.image}" class="card-img-top" alt="img of ${finalList.name}">
-        <div class="d-flex flex-column justify-content-between card-body" style="height: 13rem">
+        <div class="d-flex flex-column justify-content-between card-body" style="height: 15rem">
             <h5 class="card-title">${finalList.name}</h5>
             <p class="card-text" >${finalList.description}</p>
             <div class="d-flex justify-content-around align-items-center">
                 <p class="m-0">Price: $${finalList.price}</p>
-                <a href="./details.html?id=${finalList._id}&name=${finalList.name}" class="btn btn-danger">More Info</a>
+                <a href="./details.html?id=${finalList._id}" class="btn btn-danger">More Info</a>
             </div>
         </div>
 </div>
@@ -19,7 +20,6 @@ function cardGenerate(finalList) {
 }
 
 function cardRender(listaEventos, elemento) {
-    console.log(listaEventos.length);
     let template = '';
     if (listaEventos.length != 0) {
         for (let i of listaEventos) {
@@ -30,11 +30,8 @@ function cardRender(listaEventos, elemento) {
     }
     elemento.innerHTML = template;
 }
-cardRender(data.events, $caja);
 
 /*---------- Search Bar ----------*/
-let category02 = data.events.map(element => element.category); //Lista de categorias
-const noRepCategory = Array.from(new Set(category02)); //Categorias sin repetir
 function searchBarGenerate(categoryList, i) {
     return `
     <input type="checkbox" value="${categoryList[i]}" class="btn-check" id="${categoryList[i]}">
@@ -49,7 +46,6 @@ function searchBarRender(newCategoryList, element) {
     }
     element.innerHTML += template;
 }
-searchBarRender(noRepCategory, $cajaCheckBox);
 
 /*---------- Event Listener ----------*/
 //CheckBox
@@ -84,12 +80,12 @@ function ifSearch(data) {
 
 /*---------- Cross Filter ----------*/
 $cajaCheckBox.addEventListener('change', e => {
-    const filtrados = filtroCruzado(data.events);
+    const filtrados = filtroCruzado(newData.events);
     cardRender(filtrados, $caja);
 });
 
 $cajaSearch.addEventListener('input', e => {
-    const filtrados = filtroCruzado(data.events);
+    const filtrados = filtroCruzado(newData.events);
     cardRender(filtrados, $caja);
 });
 
@@ -97,4 +93,17 @@ function filtroCruzado(eventos) {
     return checkComparator(ifSearch(eventos));
 }
 
-// Cambiar condicionales for por metodos de array
+/*---------- With API ----------*/
+//Fetch
+const url = 'https://mindhub-xj03.onrender.com/api/amazing';
+
+fetch(url)
+    .then(answer => answer.json())
+    .then(json => {
+        newData = json;
+        cardRender(newData.events, $caja);
+        let category02 = newData.events.map(element => element.category);
+        const noRepCategory = Array.from(new Set(category02));
+        searchBarRender(noRepCategory, $cajaCheckBox);
+    })
+    .catch(err => console.log(err));

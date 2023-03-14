@@ -54,6 +54,14 @@ footer {
 }
 
 .card-background,
-.details-card {
+.details-card,
+table {
     background-image: radial-gradient(circle at 50% -20.71%, #edf3ff 0, #b5c9f2 50%, #79a1e2 100%);
+}
+
+th,
+tr,
+td {
+    border-collapse: collapse;
+    border: solid 1.5px black !important;
 }
